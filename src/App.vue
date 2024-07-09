@@ -5,6 +5,8 @@
   >
     <img src="/biomes.png" class="w-fit" />
     <Saves />
+    <Saves />
+    <Saves />
   </div>
 </template>
 

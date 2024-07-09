@@ -7,7 +7,7 @@
     @close="close"
   >
     <form v-submit="submit">
-      <Input
+      <TextInput
         placeholder="Name"
         :error="name.error"
         autofocus
@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { Input, Modal } from '@/components'
+import { Modal, TextInput } from '@/components'
 
 const store = useStore()
 

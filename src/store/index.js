@@ -4,6 +4,7 @@ const state = () => ({
   appBarHeight: 0,
   saveModalOpened: false,
   coordModalOpened: false,
+  coordModalPreset: '',
 
   data: JSON.parse(localStorage.getItem('mt') || '{}'),
 })
@@ -18,7 +19,8 @@ const actions = {
   closeSaveModal: ({ state }) => {
     state.saveModalOpened = false
   },
-  openCoordModal: ({ state }) => {
+  openCoordModal: ({ state }, preset = 'Overworld') => {
+    state.coordModalPreset = preset
     state.coordModalOpened = true
   },
   closeCoordModal: ({ state }) => {
@@ -54,7 +56,17 @@ const actions = {
       (save) => save.name === newData.selectedSave
     )
     if (index !== -1) {
-      newData.saves[index].coords.overworld.push(data)
+      const world = data.world.toLowerCase()
+      const nether = world === 'nether'
+      const newCoord = {
+        title: data.title,
+        text: data.text,
+        x: nether ? (data.x * 8).toString() : data.x,
+        z: nether ? (data.z * 8).toString() : data.z,
+        nx: nether ? data.x : Math.floor(data.x / 8).toString(),
+        nz: nether ? data.z : Math.floor(data.z / 8).toString(),
+      }
+      newData.saves[index].coords[world].push(newCoord)
       state.data = newData
       localStorage.setItem('mt', JSON.stringify(newData))
     }

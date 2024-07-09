@@ -4,10 +4,12 @@ import CoordModal from './CoordModal.vue'
 import Header from './Header.vue'
 import HeaderButton from './HeaderButton.vue'
 import Icon from './Icon.vue'
-import Input from './Input.vue'
 import Modal from './Modal.vue'
+import Options from './Options.vue'
 import SaveModal from './SaveModal.vue'
 import Section from './Section.vue'
+import TextArea from './TextArea.vue'
+import TextInput from './TextInput.vue'
 
 export {
   Button,
@@ -16,8 +18,10 @@ export {
   Header,
   HeaderButton,
   Icon,
-  Input,
   Modal,
+  Options,
   SaveModal,
   Section,
+  TextArea,
+  TextInput,
 }

@@ -15,12 +15,12 @@
     </div>
     <div class="px-4 py-2 border-l border-gray-200">
       <p class="text-right">
-        <span class="font-bold">{{ Math.floor(props.x / 8) }}</span>
+        <span class="font-bold">{{ nx }}</span>
       </p>
     </div>
     <div class="px-4 py-2 border-l border-gray-200">
       <p class="text-right">
-        <span class="font-bold">{{ Math.floor(props.z / 8) }}</span>
+        <span class="font-bold">{{ nz }}</span>
       </p>
     </div>
     <div class="px-4 py-2 border-l border-gray-200">
@@ -35,5 +35,7 @@ const props = defineProps({
   text: String,
   x: String,
   z: String,
+  nx: String,
+  nz: String,
 })
 </script>

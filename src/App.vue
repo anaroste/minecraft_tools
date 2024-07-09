@@ -6,13 +6,13 @@
       class="divide-y divide-gray-300 grow-0"
       :style="mainStyle"
     >
-      <Section title="Overworld">
+      <Section title="Overworld" @add="openCoordModal('Overworld')">
         <Coord v-for="coord in overworldCoordinates" v-bind="coord" />
       </Section>
-      <Section title="End">
+      <Section title="End" @add="openCoordModal('End')">
         <Coord v-for="coord in endCoordinates" v-bind="coord" />
       </Section>
-      <Section title="Nether">
+      <Section title="Nether" @add="openCoordModal('Nether')">
         <Coord v-for="coord in netherCoordinates" v-bind="coord" />
       </Section>
     </main>
@@ -53,4 +53,8 @@ useEventListener(window, 'keydown', (e) => {
 const mainStyle = computed(() => ({
   height: `calc(100% - ${appBarHeight.value}px)`,
 }))
+
+const openCoordModal = (preset) => {
+  store.dispatch('openCoordModal', preset)
+}
 </script>

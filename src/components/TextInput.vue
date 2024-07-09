@@ -4,10 +4,10 @@
       v-focus="props.autofocus"
       ref="input"
       type="text"
-      class="w-full h-12 px-2 rounded border placeholder:text-gray-400"
+      class="w-full h-12 px-2 rounded border bg-transparent placeholder:text-gray-400 focus:border-gray-400"
       :class="{
         'border-gray-300': !props.error,
-        'border-red-500': props.error,
+        '!border-red-500': props.error,
       }"
       :value="props.modelValue"
       :placeholder="props.placeholder"

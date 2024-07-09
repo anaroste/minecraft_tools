@@ -1,3 +1,4 @@
+import vFocus from './vFocus'
 import vSubmit from './vSubmit'
 
-export { vSubmit }
+export { vFocus, vSubmit }

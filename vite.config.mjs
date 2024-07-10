@@ -9,6 +9,12 @@ export default defineConfig(() => ({
   base: '/minecraft_tools/',
   build: {
     outDir: path.resolve(__dirname, 'docs'),
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        404: path.resolve(__dirname, '404.html'),
+      },
+    },
   },
   plugins: [
     vue(),

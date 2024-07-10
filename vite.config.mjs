@@ -5,7 +5,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 import path from 'path'
 
 export default defineConfig(() => ({
-  base: './',
+  // base: './',
+  base: '/minecraft_tools/',
   build: {
     outDir: path.resolve(__dirname, 'docs'),
   },
@@ -17,7 +18,7 @@ export default defineConfig(() => ({
     }),
     AutoImport({
       include: [/\.js$/, /\.vue$/],
-      imports: ['vue', 'vuex', 'vue-i18n', '@vueuse/core'],
+      imports: ['vue', 'vuex', 'vue-i18n', 'vue-router', '@vueuse/core'],
       dirs: ['./src/composables'],
     }),
   ],

@@ -6,6 +6,7 @@
       class="divide-y divide-gray-300 grow-0"
       :style="mainStyle"
     >
+      <router-view />
       <Section title="Overworld" @add="openCoordModal('Overworld')">
         <Coord v-for="coord in overworldCoordinates" v-bind="coord" />
       </Section>

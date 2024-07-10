@@ -6,6 +6,10 @@
     <img src="/favicon.png" class="w-8" @dblclick="tmp" />
     <h1 class="font-bold text-xl">Minecraft Tools</h1>
     <nav class="flex gap-4 ml-12">
+      <RouterLink :to="{ name: 'Coordinates' }">Coordinates</RouterLink>
+      <RouterLink :to="{ name: 'Tmp' }">Tmp</RouterLink>
+    </nav>
+    <nav class="flex gap-4 ml-12">
       <HeaderButton
         v-for="name in saveNames"
         :text="name"

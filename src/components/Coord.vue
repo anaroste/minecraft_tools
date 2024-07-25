@@ -23,8 +23,10 @@
         <span class="font-bold text-red-700">{{ nz }}</span>
       </p>
     </div>
-    <div class="px-4 py-2 border-l border-gray-200">
-      <p class="">{{ props.title }}</p>
+    <div class="px-4 py-2 border-l border-gray-200 overflow-hidden">
+      <p class="w-full text-ellipsis whitespace-nowrap overflow-hidden">
+        {{ props.title }}
+      </p>
     </div>
     <div class="flex items-center gap-1 px-4 py-2 border-l border-gray-200">
       <span

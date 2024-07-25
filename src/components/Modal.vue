@@ -4,7 +4,7 @@
     @mousedown="emits('close')"
   >
     <div
-      class="rounded overflow-hidden"
+      class="flex flex-col max-h-[calc(100%-4rem)] rounded-lg overflow-hidden"
       :class="props.modalClass"
       @mousedown.stop
     >
@@ -14,7 +14,7 @@
         <Icon v-if="props.icon" :name="props.icon" />
         <p class="font-semibold">{{ props.title }}</p>
       </header>
-      <div class="p-4 bg-gray-50" :class="contentClass">
+      <div class="p-4 bg-white" :class="contentClass" style="flex: 1">
         <slot />
       </div>
       <footer

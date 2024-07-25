@@ -1,18 +1,17 @@
 <template>
-  <div
-    class="flex h-10 rounded border border-gray-300 divide-x divide-gray-300"
-  >
+  <div class="flex h-8 gap-2">
     <div
       v-for="option in props.options"
-      class="flex items-center justify-center text-center"
+      class="flex items-center justify-center rounded text-center"
       :class="{
-        'bg-gray-200 cursor-pointer': option !== props.modelValue,
+        'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 cursor-pointer transition-colors':
+          option !== props.modelValue,
         'text-white bg-emerald-500': option === props.modelValue,
       }"
       style="flex: 1"
       @click="handleInput(option)"
     >
-      <p class="font-medium">{{ option }}</p>
+      <p class="font-medium text-sm">{{ option }}</p>
     </div>
   </div>
 </template>

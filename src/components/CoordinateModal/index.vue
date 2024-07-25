@@ -1,6 +1,7 @@
 <template>
   <Modal
-    modalClass="w-96"
+    modalClass="w-[48rem]"
+    contentClass="overflow-auto"
     title="New coordinate"
     icon="plus"
     :actions="actions"
@@ -18,40 +19,65 @@
         v-model="title.value"
       />
       <div class="flex gap-2">
-        <TextInput placeholder="X" :error="x.error" v-model="x.value" />
-        <TextInput placeholder="Z" :error="z.error" v-model="z.value" />
+        <TextInput
+          class="basis-full"
+          placeholder="X"
+          :error="x.error"
+          v-model="x.value"
+        />
+        <TextInput
+          class="basis-full"
+          placeholder="Z"
+          :error="z.error"
+          v-model="z.value"
+        />
       </div>
       <TextArea
         placeholder="Details"
         :error="text.error"
         v-model="text.value"
       />
+      <Separator />
+      <div class="flex items-center gap-2">
+        <Icon name="mountain-sun" />
+        <p class="font-semibold">Biomes</p>
+      </div>
+      <BiomesInput v-model="biomes.value" :world="world.value" />
     </form>
   </Modal>
 </template>
 
 <script setup>
-import { Modal, Options, TextArea, TextInput } from '@/components'
+import {
+  Icon,
+  Modal,
+  Options,
+  Separator,
+  TextArea,
+  TextInput,
+} from '@/components'
+import BiomesInput from './BiomesInput.vue'
 
 const store = useStore()
 
-const coordModalPreset = computed(() => store.state.coordModalPreset)
+const coordinateModalPreset = computed(() => store.state.coordinateModalPreset)
 
 onMounted(() => {
-  world.value = coordModalPreset.value
+  world.value = coordinateModalPreset.value
 })
 
 useEventListener(window, 'keydown', (e) => {
   if (e.key === 'Escape') close()
 })
 
-const close = () => store.dispatch('closeCoordModal')
+const close = () => store.dispatch('closecoordinateModal')
 
 const world = reactive({ value: '', error: '' })
 const title = reactive({ value: '', error: '' })
 const x = reactive({ value: '', error: '' })
 const z = reactive({ value: '', error: '' })
 const text = reactive({ value: '', error: '' })
+const biomes = reactive({ value: [], error: '' })
 const submit = () => {
   title.error = title.value === '' ? 'Required.' : ''
   x.error = x.value === '' ? 'Required.' : ''
@@ -65,6 +91,7 @@ const submit = () => {
     x: x.value,
     z: z.value,
     text: text.value,
+    biomes: biomes.value,
   })
   close()
 }

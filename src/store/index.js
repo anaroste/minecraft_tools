@@ -3,8 +3,8 @@ import { createStore } from 'vuex'
 const state = () => ({
   appBarHeight: 0,
   saveModalOpened: false,
-  coordModalOpened: false,
-  coordModalPreset: '',
+  coordinateModalOpened: false,
+  coordinateModalPreset: '',
 
   data: JSON.parse(localStorage.getItem('mt') || '{}'),
 })
@@ -19,12 +19,12 @@ const actions = {
   closeSaveModal: ({ state }) => {
     state.saveModalOpened = false
   },
-  openCoordModal: ({ state }, preset = 'Overworld') => {
-    state.coordModalPreset = preset
-    state.coordModalOpened = true
+  opencoordinateModal: ({ state }, preset = 'Overworld') => {
+    state.coordinateModalPreset = preset
+    state.coordinateModalOpened = true
   },
-  closeCoordModal: ({ state }) => {
-    state.coordModalOpened = false
+  closecoordinateModal: ({ state }) => {
+    state.coordinateModalOpened = false
   },
 
   addSave: ({ state }, name) => {
@@ -65,6 +65,7 @@ const actions = {
         z: nether ? (data.z * 8).toString() : data.z,
         nx: nether ? data.x : Math.floor(data.x / 8).toString(),
         nz: nether ? data.z : Math.floor(data.z / 8).toString(),
+        biomes: data.biomes,
       }
       newData.saves[index].coords[world].push(newCoord)
       state.data = newData

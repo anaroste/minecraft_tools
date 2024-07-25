@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import { Coordinates, Tmp } from '@/pages'
+import { Coordinates } from '@/pages'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,11 +9,6 @@ const router = createRouter({
       path: '/',
       name: 'Coordinates',
       component: Coordinates,
-    },
-    {
-      path: '/tmp',
-      name: 'Tmp',
-      component: Tmp,
     },
   ],
 })

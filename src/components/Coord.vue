@@ -15,12 +15,12 @@
     </div>
     <div class="px-4 py-2 border-l border-gray-200">
       <p class="text-right">
-        <span class="font-bold">{{ nx }}</span>
+        <span class="font-bold text-red-700">{{ nx }}</span>
       </p>
     </div>
     <div class="px-4 py-2 border-l border-gray-200">
       <p class="text-right">
-        <span class="font-bold">{{ nz }}</span>
+        <span class="font-bold text-red-700">{{ nz }}</span>
       </p>
     </div>
     <div class="px-4 py-2 border-l border-gray-200">

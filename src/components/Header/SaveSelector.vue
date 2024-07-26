@@ -1,13 +1,13 @@
 <template>
   <div class="flex items-center gap-4">
     <div
-      v-if="saveNames.length"
+      v-if="saves.length"
       ref="target"
       class="relative flex items-center gap-2 cursor-pointer p-4 hover:bg-gray-100 focus:bg-gray-100 active:active:bg-gray-200 rounded"
       @click="toggle"
       tabindex="0"
     >
-      <p class="font-semibold text-sm">{{ selectedSave }}</p>
+      <p class="font-semibold text-sm">{{ selectedSave?.name }}</p>
       <Icon class="-mt-0.5" name="chevron-down" size="xs" />
       <ul
         v-if="opened"
@@ -15,16 +15,16 @@
         style="top: calc(100% + 4px)"
       >
         <li
-          v-for="save in saveNames"
+          v-for="save in saves"
           class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 active:bg-gray-200"
-          @click="selectSave(save)"
+          @click="selectSave(save.ID)"
         >
           <p class="basis-full font-semibold text-sm whitespace-nowrap">
-            {{ save }}
+            {{ save.name }}
           </p>
           <Icon
             class="-mt-0.5"
-            :class="{ 'opacity-0': save !== selectedSave }"
+            :class="{ 'opacity-0': save.ID !== selectedSave.ID }"
             name="check"
             size="xs"
           />
@@ -46,7 +46,7 @@ import { Icon } from '@/components'
 
 const store = useStore()
 
-const saveNames = computed(() => store.getters['saveNames'])
+const saves = computed(() => store.state.saves)
 const selectedSave = computed(() => store.getters['selectedSave'])
 
 const emits = defineEmits(['change'])

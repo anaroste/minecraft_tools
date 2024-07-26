@@ -75,8 +75,13 @@
     "cave": "Cave"
   },
   "worlds": {
-    "overworld": "overworld",
-    "nether": "nether",
-    "end": "end"
+    "overworld": "Overworld",
+    "nether": "Nether",
+    "end": "End"
+  },
+  "coordinates": {
+    "overworld": "Overworld coordinate",
+    "nether": "Nether coordinate",
+    "end": "End coordinate"
   }
 }

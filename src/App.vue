@@ -18,12 +18,14 @@ const saveModalOpened = computed(() => store.state.saveModalOpened)
 const selectedSave = computed(() => store.getters['selectedSave'])
 const appBarHeight = useAppBarHeight()
 
+onMounted(() => store.dispatch('initDB'))
+
 useEventListener(window, 'keydown', (e) => {
   if (e.ctrlKey && !coordinateModalOpened.value && !saveModalOpened.value) {
     if (e.code === 'KeyA' && selectedSave.value) {
       e.preventDefault()
       e.stopPropagation()
-      store.dispatch('opencoordinateModal')
+      store.dispatch('openCoordinateModal')
     } else if (e.code === 'KeyS') {
       e.preventDefault()
       e.stopPropagation()

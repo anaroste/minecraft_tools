@@ -9,14 +9,18 @@
   >
     <form v-submit="submit" class="flex flex-col gap-4">
       <Options
-        :options="['Overworld', 'End', 'Nether']"
+        :options="[
+          { text: 'Overworld', value: 'overworld' },
+          { text: 'End', value: 'end' },
+          { text: 'Nether', value: 'nether' },
+        ]"
         v-model="world.value"
       />
       <TextInput
-        placeholder="Title"
-        :error="title.error"
+        placeholder="Name"
+        :error="name.error"
         autofocus
-        v-model="title.value"
+        v-model="name.value"
       />
       <div class="flex gap-2">
         <TextInput
@@ -34,8 +38,8 @@
       </div>
       <TextArea
         placeholder="Details"
-        :error="text.error"
-        v-model="text.value"
+        :error="details.error"
+        v-model="details.value"
       />
       <Separator />
       <div class="flex items-center gap-2">
@@ -70,27 +74,27 @@ useEventListener(window, 'keydown', (e) => {
   if (e.key === 'Escape') close()
 })
 
-const close = () => store.dispatch('closecoordinateModal')
+const close = () => store.dispatch('closeCoordinateModal')
 
 const world = reactive({ value: '', error: '' })
-const title = reactive({ value: '', error: '' })
+const name = reactive({ value: '', error: '' })
 const x = reactive({ value: '', error: '' })
 const z = reactive({ value: '', error: '' })
-const text = reactive({ value: '', error: '' })
+const details = reactive({ value: '', error: '' })
 const biomes = reactive({ value: [], error: '' })
 const submit = () => {
-  title.error = title.value === '' ? 'Required.' : ''
+  name.error = name.value === '' ? 'Required.' : ''
   x.error = x.value === '' ? 'Required.' : ''
   z.error = z.value === '' ? 'Required.' : ''
-  if (title.error || x.error || z.error) {
+  if (name.error || x.error || z.error) {
     return
   }
   store.dispatch('addCoordinate', {
     world: world.value,
-    title: title.value,
+    name: name.value,
     x: x.value,
     z: z.value,
-    text: text.value,
+    details: details.value,
     biomes: biomes.value,
   })
   close()

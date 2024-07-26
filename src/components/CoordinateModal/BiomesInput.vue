@@ -8,10 +8,13 @@
         v-for="biome in availableBiomes
           .filter((biome) => biome.type === _type)
           .sort((a, b) => a.name.localeCompare(b.name))"
-        class="flex items-center gap-1 p-1 rounded"
+        class="flex items-center gap-1 p-1 rounded cursor-pointer transition-colors"
         :class="{
-          'bg-gray-100': !props.modelValue.includes(biome.name),
-          'bg-emerald-500 text-white': props.modelValue.includes(biome.name),
+          'bg-gray-100 hover:bg-gray-200': !props.modelValue.includes(
+            biome.name
+          ),
+          'bg-emerald-500 hover:bg-emerald-600 text-white':
+            props.modelValue.includes(biome.name),
         }"
         @click="handleInput(biome.name)"
       >

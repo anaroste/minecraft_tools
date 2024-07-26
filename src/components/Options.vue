@@ -5,13 +5,13 @@
       class="flex items-center justify-center rounded text-center"
       :class="{
         'bg-gray-100 hover:bg-gray-200 active:bg-gray-300 cursor-pointer transition-colors':
-          option !== props.modelValue,
-        'text-white bg-emerald-500': option === props.modelValue,
+          option.value !== props.modelValue,
+        'text-white bg-emerald-500': option.value === props.modelValue,
       }"
       style="flex: 1"
-      @click="handleInput(option)"
+      @click="handleInput(option.value)"
     >
-      <p class="font-medium text-sm">{{ option }}</p>
+      <p class="font-medium text-sm">{{ option.text }}</p>
     </div>
   </div>
 </template>

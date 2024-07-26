@@ -61,7 +61,10 @@
               />
             </ul>
           </section>
-          <section class="flex flex-col gap-4 p-4 border-b border-gray-300">
+          <section
+            v-if="_biomes.length"
+            class="flex flex-col gap-4 p-4 border-b border-gray-300"
+          >
             <header class="flex items-center gap-2">
               <Icon name="mountain-sun" />
               <p class="font-semibold">Biomes</p>
@@ -81,7 +84,10 @@
               </li>
             </ul>
           </section>
-          <section class="flex flex-col gap-4 p-4 border-b border-gray-300">
+          <section
+            v-if="distances.length"
+            class="flex flex-col gap-4 p-4 border-b border-gray-300"
+          >
             <header class="flex items-center gap-2">
               <Icon name="arrows-left-right" />
               <p class="font-semibold">Distances</p>

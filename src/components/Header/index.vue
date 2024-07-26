@@ -32,7 +32,8 @@ watch(
 )
 
 const deleteLocalStorage = () => {
-  localStorage.removeItem('mt')
+  localStorage.removeItem('db_mt')
+  localStorage.removeItem('mt_selected_save')
   console.log('Data deleted.')
 }
 </script>

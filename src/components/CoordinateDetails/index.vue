@@ -1,8 +1,13 @@
 <template>
-  <transition enter-from-class="w-0" leave-to-class="w-0">
+  <transition
+    enter-from-class="w-0"
+    enter-to-class="w-[32rem]"
+    leave-from-class="w-[32rem]"
+    leave-to-class="w-0"
+  >
     <div
       v-if="coordinateDetailsOpened"
-      class="flex-shrink-0 w-[32rem] border-l border-gray-300 duration-300"
+      class="flex-shrink-0 border-l border-gray-300 duration-300"
     >
       <div class="flex flex-col w-[32rem] h-full">
         <header
